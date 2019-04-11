@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+        
+        body {
+            line-height: 1;
+        }
+        
+        ol,
+        ul {
+            list-style: none;
+        }
+        
+        blockquote,
+        q {
+            quotes: none;
+        }
+        
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: '';
+            content: none;
+        }
+        
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        
+        .header {
+            width: 100%;
+            height: 300px;
+            background: #424242;
+            padding: 50px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        
+        .t1 {
+            font-size: 19px;
+            color: #ffd366;
+            text-align: left;
+            margin-left: 10px;
+        }
+        
+        .bmidiv {
+            width: 33.3%;
+            float: left;
+            text-align: right;
+            padding: 5px 5px 5px 5px;
+            box-sizing: border-box;
+            /* 也可以用大範圍直接padding多一點，就不用bmimid用 */
+        }
+        
+        .bmimid {
+            width: 350px;
+            /* 給一個範圍 */
+            margin: 10px auto;
+            text-align: center;
+            padding: 5px 50px 0px 50px;
+            box-sizing: border-box;
+        }
+        
+        .f4 {
+            padding: 130px 5px 5px 5px;
+        }
+        
+        .bmibt {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #ffd466;
+            font-size: 22px;
+            text-align: center;
+            line-height: 110px;
+            /* 因為f1有p5所以要扣掉上下p*/
+            /* box-sizing: border-box; */
+            margin-top: 40px;
+        }
+        
+        .bmibt:hover {
+            cursor: pointer;
+            box-shadow: 0 0 10px rgb(225, 226, 226);
+            transition: all ease .15s;
+            background: #fad370;
+            /* 用透明度的話，反而會變暗 */
+            /* http://www.oxxostudio.tw/articles/201407/css-blur.html */
+        }
+        
+        .bmibt:active {
+            background: #dea821;
+            /* 這樣會變成有2個，應該是點擊後就不應該出現hover的樣式吧? */
+        }
+        
+        @keyframes ease {
+            0% {
+                box-shadow: 0 0 20px rgba(225, 226, 226, 0.712);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(225, 226, 226, 0.794);
+            }
+            100% {
+                box-shadow: 0 0 20px rgb(225, 226, 226);
+            }
+        }
+        
+        input {
+            width: 250px;
+            font-size: 26px;
+            margin: 7px 7px 10px 7px;
+            background: #64646473;
+            padding: 3px 0 3px 10px;
+            border: 2px solid #ffd366;
+            border-radius: 10px;
+            box-sizing: border-box;
+            color: aliceblue;
+            box-sizing: border-box;
+        }
+        
+        .pt {
+            padding: 40px 5px 5px 5px;
+        }
+        
+         ::-webkit-input-placeholder {
+            color: rgb(168, 167, 167);
+            /* 修改預設顏色，上面的語法只能用在chrome瀏覽器上 */
+            /* https://translate.google.com.tw/translate?hl=zh-TW&sl=zh-CN&u=http://www.qdker.com/archives/308.html&prev=search */
+            /* https://translate.google.com.tw/translate?hl=zh-TW&sl=zh-CN&u=http://www.cnblogs.com/shirleys/p/4269333.html&prev=search */
+        }
+        
+        .bmierror {
+            color: #ee9044;
+            font-size: 16px;
+            text-align: left;
+            margin-left: 10px;
+        }
+        
+        .bmilogo {
+            font-size: 14px;
+            color: #f5f5f5;
+            line-height: 0;
+            margin-top: -20px;
+        }
+        
+        .bmitext {
+            width: 100px;
+            height: 100px;
+            font-size: 30px;
+            color: #ffffff;
+            line-height: 0;
+            margin-top: -25px;
+            margin-left: 110px;
+        }
+        
+        .bmiicon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            margin-top: -70px;
+            margin-left: 75px;
+            position: relative;
+            background: url(img/icons.png) no-repeat center;
+        }
+        
+        .content {
+            font: bold;
+            font-size: 28px;
+            color: #424242;
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 50px 0 25px 0;
+        }
+        
+        .footer {
+            width: 100%;
+            height: 90px;
+            background-color: #ffd366;
+            padding: 5px 0 5px 0;
+            line-height: 130px;
+            text-align: center;
+        }
+        
+        .clearfix {
+            clear: both;
+        }
+        
+        .text {
+            background-color: #f5f5f5;
+            padding: 10px;
+        }
+        
+        .list {
+            display: none;
+            font-size: 20px;
+            font: large;
+            line-height: 55px;
+            padding: 0 0 0 7px;
+            margin-bottom: 15px;
+            margin: 0 auto;
+            width: 650px;
+            height: 55px;
+            background-color: #ffffff;
+            /* border-left: 7px solid aqua; */
+            box-sizing: border-box;
+        }
+        
+        .ts1 {
+            padding: 0 5px 0 70px;
+            font-size: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="header">
+            <div class="bmidiv pt"><img src="img/BMILogo.png" alt="BMILogo"></div>
+            <div class="bmidiv">
+                <div class="bmimid" id="tt1">
+                    <p class="t1">身高 cm</p>
+                    <input type="text" id="tall" placeholder="請輸入身高">
+                    <p class="bmierror tallerror"></p>
+                </div>
+                <div class="bmimid" id="ww1">
+                    <p class="t1">體重 kg</p>
+                    <input type="text" id="weight" placeholder="請輸入體重">
+                    <p class="bmierror weighterror"></p>
+                </div>
+            </div>
+            <div class="bmidiv bmibt" id="bmibt">
+                看結果
+                <!-- <p class="bmilogo">BMI</p>-->
+                <!-- 如果把這行放在bmidiv的div裡，js執行時只會顯示textContent裡的內容，這行會消失，無法顯示出來，因此不要單放在上面的div裡!! -->
+                <!-- 要重組字串加入才可以 -->
+                <!-- <p class="bmitext">理想</p> -->
+                <!-- <上面這行也是運用js重組加入 -->
+                <!-- <p class="bmiicon"></p> -->
+                <!-- <上面這行也是運用js重組加入 -->
+
+                <!-- 7/16按鈕要改成rwd時，用maign-left變更!再1100以下的樣子 -->
+
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="content">
+            BMI 紀錄
+        </div>
+        <div class="text">
+            <ul class="list">
+                <!-- <li>
+                    <sapn class="showfont"></sapn>
+                    <sapn class="ts1">BMI</sapn><span class="showbmi"></span>
+                    <sapn class="ts1">weight</sapn> <span class="showkg"></span>
+                    <sapn class="ts1">height</sapn> <span class="showhei"></span>
+                    <sapn class="ts1 showdata">06-17-2017</sapn>
+                </li> -->
+
+            </ul>
+        </div>
+
+
+        <div class="footer ">
+            <img src="img/BMIfooter.png" width="55px" height="55px">
+            <!-- shift+end可快速選取整行 -->
+        </div>
+
+    </div>
+    <script src="bmi.js"></script>
+</body>
+
+
+</html>
